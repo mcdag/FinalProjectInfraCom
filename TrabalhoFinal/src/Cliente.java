@@ -1,3 +1,5 @@
+package br.ufpe.cin.infracom;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -7,10 +9,6 @@ import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.Font;
 
 /**
  *
@@ -31,7 +29,6 @@ public class Cliente extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel1.setFont(new Font("Dialog", Font.BOLD, 15));
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -119,93 +116,92 @@ public class Cliente extends javax.swing.JFrame {
         });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-        	jPanel1Layout.createParallelGroup(Alignment.TRAILING)
-        		.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        		.addGroup(jPanel1Layout.createSequentialGroup()
-        			.addContainerGap()
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(jLabel6)
-        						.addComponent(jLabel1)
-        						.addGroup(jPanel1Layout.createSequentialGroup()
-        							.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        								.addComponent(jLabel2)
-        								.addComponent(jLabel3)
-        								.addComponent(jLabel5))
-        							.addGap(115)
-        							.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        								.addComponent(portaDestino, GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-        								.addComponent(portaOrigem, GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-        								.addComponent(ipDestino, GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))))
-        					.addGap(0, 406, Short.MAX_VALUE))
-        				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING, false)
-        						.addGroup(jPanel1Layout.createSequentialGroup()
-        							.addComponent(jLabel7)
-        							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        							.addComponent(numPacotes, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE))
-        						.addGroup(jPanel1Layout.createSequentialGroup()
-        							.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        								.addComponent(jLabel9)
-        								.addComponent(jLabel8))
-        							.addPreferredGap(ComponentPlacement.UNRELATED)
-        							.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        								.addComponent(totalBytes, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-        								.addComponent(duracaoTeste, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE))))
-        					.addPreferredGap(ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
-        					.addComponent(botaoIniciarTeste)))
-        			.addContainerGap())
-        		.addGroup(jPanel1Layout.createSequentialGroup()
-        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        			.addComponent(jLabel4)
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addComponent(tamanhoMsg, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-        			.addGap(418))
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(portaDestino, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                                    .addComponent(ipDestino)))
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(portaOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tamanhoMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(numPacotes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8))
+                                .addGap(26, 26, 26)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(totalBytes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(duracaoTeste, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
+                        .addComponent(botaoIniciarTeste)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
-        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(jPanel1Layout.createSequentialGroup()
-        			.addContainerGap()
-        			.addComponent(jLabel1)
-        			.addGap(33)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel2)
-        				.addComponent(portaOrigem, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel3)
-        				.addComponent(portaDestino, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel5)
-        				.addComponent(ipDestino, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addComponent(jLabel4)
-        					.addGap(53)
-        					.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
-        					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(jLabel6))
-        				.addComponent(tamanhoMsg, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addGap(22)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel7)
-        				.addComponent(numPacotes, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel8)
-        				.addComponent(totalBytes, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel9)
-        				.addComponent(botaoIniciarTeste)
-        				.addComponent(duracaoTeste, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(portaOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(portaDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(ipDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(tamanhoMsg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(numPacotes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(totalBytes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(botaoIniciarTeste)
+                    .addComponent(duracaoTeste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1.setLayout(jPanel1Layout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -275,16 +271,13 @@ public class Cliente extends javax.swing.JFrame {
         DatagramSocket clientSocket = new DatagramSocket();
         InetAddress ipServidor = InetAddress.getByName(this.ipDestino.getText());
         byte[] enviarDados = new byte[Integer.parseInt(this.tamanhoMsg.getText())];
-        
-    	//quantd de pacotes, tempo inicial, bytes enviados
-    	String tempoInicial = Long.toString(System.currentTimeMillis()); //tempo inicial do primeiro pacote
-    	String tamanhoDaMensagem = tamanhoMsg.getText(); //tamanho de cada pacote em bytes
-    	String qntdDePacotes = numPacotes.getText(); //total de pacotes a ser enviado
-    	String bytesEnviados = Integer.toString(Integer.parseInt(tamanhoDaMensagem) * Integer.parseInt(qntdDePacotes)); //essa mult da o total de bytes enviados
-    	String dados = qntdDePacotes + " " + tempoInicial + " " + bytesEnviados; //cabecalho
-    	
-        for (int i = 0; i < Integer.parseInt(this.numPacotes.getText()); i++) {
-        	enviarDados = dados.getBytes();
+        int qtePacotes = Integer.parseInt(this.numPacotes.getText()), qte = qtePacotes * Integer.parseInt(this.tamanhoMsg.getText());
+        for (int i = 0; i < qtePacotes; i++) {
+            if(i == qtePacotes - 1){
+                enviarDados = this.inserirCabecalho(enviarDados, true, 1, qte, qtePacotes);
+            }else{
+                enviarDados = this.inserirCabecalho(enviarDados, false, 1, qte, qtePacotes);
+            }
             DatagramPacket enviarPacote = new DatagramPacket(enviarDados, enviarDados.length, ipServidor, Integer.parseInt(this.portaDestino.getText()));
             clientSocket.send(enviarPacote);
         }
@@ -292,25 +285,24 @@ public class Cliente extends javax.swing.JFrame {
     }
     //Testar
     private void enviarDuracaoTeste() throws SocketException, UnknownHostException, IOException{
-    	//quantd de pacotes, tempo inicial, bytes enviados
-    	String tempoInicial = Long.toString(System.currentTimeMillis()); //tempo inicial do primeiro pacote
-    	String tamanhoDaMensagem = tamanhoMsg.getText();
-    	//precisamos saber como que definiremos a quantidade de pacotes
-    	//String dados = qntdDePacotes + tempoInicial + tamanhoDaMensagem;
-    	
         boolean temTempo = true;
         DatagramSocket clientSocket = new DatagramSocket();
         InetAddress ipServidor = InetAddress.getByName(this.ipDestino.getText());
         byte[] enviarDados = new byte[Integer.parseInt(this.tamanhoMsg.getText())];
         long tempo = System.currentTimeMillis();
+        int duracao = Integer.parseInt(this.duracaoTeste.getText()) * 1000;
         
-        while (temTempo) {            
+        for (int i = 0; temTempo; i++) {
+            if((System.currentTimeMillis() - tempo) >= duracao){
+                temTempo = false;
+                enviarDados = this.inserirCabecalho(enviarDados, true, 2, i, Integer.parseInt(this.duracaoTeste.getText()));
+            }else{
+                enviarDados = this.inserirCabecalho(enviarDados, false, 2, i, Integer.parseInt(this.duracaoTeste.getText()));
+            }
             DatagramPacket enviarPacote = new DatagramPacket(enviarDados, enviarDados.length, ipServidor, Integer.parseInt(this.portaDestino.getText()));
             clientSocket.send(enviarPacote);
-            if((System.currentTimeMillis() - tempo) >= Integer.parseInt(this.duracaoTeste.getText())/1000){
-                temTempo = false;
-            }
         }
+        
         clientSocket.close();
     }
     //Testar
@@ -320,18 +312,32 @@ public class Cliente extends javax.swing.JFrame {
         InetAddress ipServidor = InetAddress.getByName(this.ipDestino.getText());
         byte[] enviarDados = new byte[Integer.parseInt(this.tamanhoMsg.getText())];
         
-    	//quantd de pacotes, tempo inicial, bytes enviados
-    	String tempoInicial = Long.toString(System.currentTimeMillis()); //tempo inicial do primeiro pacote
-    	String qntdDePacotes = Integer.toString(x);//total de pacotes a ser enviado
-    	String bytesEnviados = totalBytes.getText(); //pega total de bytes digitados
-    	String dados = qntdDePacotes + " " + tempoInicial + " " + bytesEnviados; //cabecalho
-    	enviarDados = dados.getBytes();
-    	
         for (int i = 0; i < x; i++) {
+            if(i == x - 1){
+                enviarDados = this.inserirCabecalho(enviarDados, true, 3, Integer.parseInt(this.totalBytes.getText()), 0);
+            }else{
+                enviarDados = this.inserirCabecalho(enviarDados, false, 3, Integer.parseInt(this.totalBytes.getText()), 0);
+            }
             DatagramPacket enviarPacote = new DatagramPacket(enviarDados, enviarDados.length, ipServidor, Integer.parseInt(this.portaDestino.getText()));
             clientSocket.send(enviarPacote);
         }
         clientSocket.close();
+    }
+    
+    private byte[] inserirCabecalho(byte[] dados, boolean ultimo, int opcao, int qteBytes, int opcaoValor){
+        byte versao;
+        
+        if(ultimo){
+            versao = (byte)0b00010000; //versão 1 e ultimo pacote
+        }else{
+            versao = (byte)0b00000000; //versão 1
+        }
+        
+        dados[0] = versao;
+        dados[1] = (byte) opcao;
+        dados[2] = (byte) qteBytes;
+        dados[3] = (byte) opcaoValor;
+        return dados;
     }
     
     public static void main(String args[]) {
@@ -368,5 +374,4 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JTextField tamanhoMsg;
     private javax.swing.JTextField totalBytes;
     // End of variables declaration//GEN-END:variables
-    
 }
