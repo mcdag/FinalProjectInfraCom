@@ -18,7 +18,7 @@ public class Servidor extends javax.swing.JFrame {
     	//000 - versao ; 0 - flag; 
         initComponents();
 //      resumo das opções do cliente, total de bytes enviados pelo cliente, total de bytes recebidos pelo
-//      servidor, taxa de transferência (número de total de bytes enviados / tempo total de envio),
+//        servidor, taxa de transferência (número de total de bytes enviados / tempo total de envio),
 //      % de perda de pacotes 
     	int contadorDeJitter= 0;
     	long jitterMinimo = Long.MAX_VALUE;
@@ -27,14 +27,25 @@ public class Servidor extends javax.swing.JFrame {
     	long somaJitter = 0;
         this.serverSocket = new DatagramSocket(this.porta);
         this.receberDados = new byte[1000];
+        DatagramPacket receberPacote = new DatagramPacket(receberDados, receberDados.length);
+        serverSocket.receive(receberPacote);
         long tempAnterior = System.currentTimeMillis();
         long tempAtual = tempAnterior;
-        String msgConvertida = new String(receberDados, "UTF-8");
-        char flag = msgConvertida.charAt(3);
-        while(flag != '1') {
+        byte cabecalho = receberDados[0]; 
+        int bitFlag = (cabecalho >> 4) & 1;
+        
+        
+        while(bitFlag != 1) {
         	this.receberDados = new byte[1000];
+            receberPacote = new DatagramPacket(receberDados, receberDados.length);
+            serverSocket.receive(receberPacote);
+        	cabecalho = receberDados[0];
+        	bitFlag = (cabecalho >>4) & 1;
         	tempAtual = System.currentTimeMillis();
+        	System.out.println("tempo atual: " + tempAtual + "ms");
+        	System.out.println("tempo anterior: " + tempAnterior + "ms");
         	long jitter = tempAtual - tempAnterior;
+        	System.out.println("jitter: " + jitter + "ms");
         	contadorDeJitter++;
         	if(jitter > jitterMaximo) {
         		jitterMaximo = jitter;
@@ -43,19 +54,20 @@ public class Servidor extends javax.swing.JFrame {
         	}
         	somaJitter = somaJitter + jitter;
         	tempAnterior = tempAtual;
+        	System.out.println("quantidade de pacotes: " + (contadorDeJitter + 1));
         }
-    	tempAnterior = tempAtual;
-        this.receberDados = new byte[1000];
-    	long jitter = System.currentTimeMillis() - tempAnterior;
-    	contadorDeJitter++;
-    	
-        if(jitter > jitterMaximo) {
-    		jitterMaximo = jitter;
-    	}if(jitter < jitterMinimo) {
-    		jitterMinimo = jitter;
-    	}
-    	somaJitter = somaJitter + jitter;
-    	jitterMedio = somaJitter/contadorDeJitter;
+        
+        if (contadorDeJitter == 0) { //SÓ RECEBEU 1 PACOTE
+        	jitterMinimo = 0;
+        	jitterMaximo = 0;
+        	jitterMedio = 0;
+        } else {
+        	jitterMedio = somaJitter/contadorDeJitter;
+        }
+        
+        System.out.println("JITTER MINIMO: " + jitterMinimo);
+        System.out.println("JITTER MAXIMO: " + jitterMaximo);
+        System.out.println("JITTER MEDIO: " + jitterMedio);
     }
 
     @SuppressWarnings("unchecked")
@@ -156,7 +168,7 @@ public class Servidor extends javax.swing.JFrame {
         /**
          * Fazer: cliente enviar os pacotes de acordo com a opção escolhida
          * servidor identificar que os pacotes pararam de chegar
-         * Solução pro RTT: adicionar uma info extra com o tempo de saída
+         * Solução pro RTT: adicionar uma info extra com o tempo de saí­da
          */
         while(true){
             DatagramPacket receberPacote = new DatagramPacket(servidor.receberDados, servidor.receberDados.length);
