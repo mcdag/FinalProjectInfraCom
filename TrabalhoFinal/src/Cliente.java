@@ -1,5 +1,3 @@
-package br.ufpe.cin.infracom;
-
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
